@@ -5,4 +5,29 @@ Firehose API provides multiple events such as device entry, exit, current locati
 This sample application uses Cisco DNA Spaces Firehose API events such as entry, exit, current location and associated profile, builds data pipeline using AWS S3 and AWS Redshift. 
 
 With the data available in Redshift we can build a RightNow Visitors dashboard, this is WIP.
- 
+
+The server application(APIConsumer), invokes the Cisco DNA Spaces Firehose API and consumes the events. The events data is extracted and written into CSV file which is uploaded to AWS S3. Then the events data in the CSV files are read from AWS S3 and inserted into corressponding AWS Redshift tables for each event.
+
+Steps to Run the application
+1) Clone the code
+2) Update app.properties file (/server/src/main/resources/app.properties) with appropriate values. All the below mentioned properties are mandatory.
+```properties
+    api.key={{Firehose API key}}
+    api.url={{Firehose API URL}}}
+
+    websocket.port={{websocket port}}
+
+    data.directory={{directory path to store files locally}}
+    
+    s3.bucketname={{S3 bucketname}}
+    s3.accesskey={{S3 access key}}
+    s3.secretkey={{S3 Secret key}}
+
+
+    redshift.db.lookupSchemas={{Redshift Schema name}}
+    redshift.db.jdbcURL={{Redshift connection String}}
+    redshift.db.user={{Redshift user name}}
+    redshift.db.password={{Redshift user password}}
+```
+3) Create local data directory as mentioned in the properties file.
+4) Build the project and execute com.cisco.dnaspaces.APIConsumer class to run the application.
