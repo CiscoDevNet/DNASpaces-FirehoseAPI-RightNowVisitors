@@ -1,0 +1,22 @@
+{
+  "partnerTenantId": "partnerTenantId",
+  "spacesTenantId": "spacesTenantId",
+  "recordUid": "recordUid",
+  "spacesTenantName": "spacesTenantName",
+  "recordTimestamp": "recordTimestamp",
+  "deviceLocationUpdate_yPos": "deviceLocationUpdate_yPos",
+  "deviceLocationUpdate_xPos": "deviceLocationUpdate_xPos",
+  "deviceLocationUpdate_latitude": "deviceLocationUpdate_latitude",
+  "deviceLocationUpdate_longitude": "deviceLocationUpdate_longitude",
+  "deviceLocationUpdate_ssid": "deviceLocationUpdate_ssid",
+  "deviceLocationUpdate_rawUserId": "deviceLocationUpdate_rawUserId",
+  "deviceLocationUpdate_lastSeen": "deviceLocationUpdate_lastSeen",
+  "deviceLocationUpdate_visitId": "deviceLocationUpdate_visitId",
+  "deviceLocationUpdate_deviceClassification": "deviceLocationUpdate_deviceClassification",
+  "deviceLocationUpdate_location_inferredLocationTypes_0": "deviceLocationUpdate_location_inferredLocationTypes_0",
+  "deviceLocationUpdate_location_locationId": "deviceLocationUpdate_location_locationId",
+  "deviceLocationUpdate_location_name": "deviceLocationUpdate_location_name",
+  "deviceLocationUpdate_device_deviceId": "deviceLocationUpdate_device_deviceId",
+  "deviceLocationUpdate_device_macAddress": "deviceLocationUpdate_device_macAddress",
+  "deviceLocationUpdate_device_manufacturer": "deviceLocationUpdate_device_manufacturer"
+}

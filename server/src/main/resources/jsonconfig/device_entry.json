@@ -1,0 +1,17 @@
+{
+  "partnerTenantId": "partnerTenantId",
+  "spacesTenantId": "spacesTenantId",
+  "recordUid": "recordUid",
+  "spacesTenantName": "spacesTenantName",
+  "recordTimestamp": "recordTimestamp",
+  "deviceEntry_device_deviceId": "deviceEntry_device_deviceId",
+  "deviceEntry_device_macAddress": "deviceEntry_device_macAddress",
+  "deviceEntry_location_locationId": "deviceEntry_location_locationId",
+  "deviceEntry_location_name": "deviceEntry_location_name",
+  "deviceEntry_inferredLocationTypes_0": "deviceEntry_inferredLocationTypes_0",
+  "deviceEntry_visitId": "deviceEntry_visitId",
+  "deviceEntry_entryTimestamp": "deviceEntry_entryTimestamp",
+  "deviceEntry_entryDateTime": "deviceEntry_entryDateTime",
+  "deviceEntry_timeZone": "deviceEntry_timeZone",
+  "deviceEntry_daysSinceLastVisit": "deviceEntry_daysSinceLastVisit"
+}

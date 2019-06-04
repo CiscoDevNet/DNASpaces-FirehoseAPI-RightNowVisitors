@@ -1,0 +1,15 @@
+{
+  "partnerTenantId": "partnerTenantId",
+  "spacesTenantId": "spacesTenantId",
+  "recordUid": "recordUid",
+  "spacesTenantName": "spacesTenantName",
+  "recordTimestamp": "recordTimestamp",
+  "deviceProfileUpdate_device_deviceId": "deviceProfileUpdate_device_deviceId",
+  "deviceProfileUpdate_device_userId": "deviceProfileUpdate_device_userId",
+  "deviceProfileUpdate_device_macAddress": "deviceProfileUpdate_device_macAddress",
+  "deviceProfileUpdate_mobile": "deviceProfileUpdate_mobile",
+  "deviceProfileUpdate_email": "deviceProfileUpdate_email",
+  "deviceProfileUpdate_gender": "deviceProfileUpdate_gender",
+  "deviceProfileUpdate_firstName": "deviceProfileUpdate_firstName",
+  "deviceProfileUpdate_lastName": "deviceProfileUpdate_lastName"
+}
