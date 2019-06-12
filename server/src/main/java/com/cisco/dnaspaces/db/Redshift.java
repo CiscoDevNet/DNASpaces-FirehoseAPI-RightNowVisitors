@@ -6,9 +6,11 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Redshift {
@@ -23,16 +25,33 @@ public class Redshift {
             connectionPool = new RedshiftConnectionPool();
     }
 
-    public static void query(String query, Map<String,Object> params, int tryCount) throws FireHoseAPIException {
+    public static List<Map<String,String>> query(String query, Map<String,Object> params, int tryCount) throws FireHoseAPIException {
         init();
         Statement stmt = null;
         long start = System.currentTimeMillis();
         RedshiftConnectionPool.RedshiftConnection redshiftConnection = connectionPool.get();
+        List<Map<String,String>> records = null;
         try {
             stmt = redshiftConnection.getConnection().createStatement();
             ResultSet resultSet = stmt.executeQuery(query);
             long queryTime = System.currentTimeMillis() - start;
+            log.debug("Time taken to execute query "+query+" is "+queryTime);
 
+            if (resultSet != null) {
+                ResultSetMetaData metaData = resultSet.getMetaData();
+                int columnCount = metaData.getColumnCount();
+                if (columnCount > 0) {
+                    records = new ArrayList<>();
+                    while (resultSet.next()) {
+                        Map<String,String> record = new HashMap<>();
+                        for (int i = 0; i < columnCount; i++)
+                            record.put(metaData.getColumnLabel(i+1),(resultSet.getObject(i+1) != null) ? resultSet.getObject(i+1).toString() : null);
+                        records.add(record);
+                    }
+                }
+                resultSet.close();
+            }
+            return records;
         }catch (SQLException e){
             log.error(e.getMessage());
             throw new FireHoseAPIException(e);

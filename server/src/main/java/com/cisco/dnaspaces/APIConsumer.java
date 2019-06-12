@@ -6,12 +6,12 @@ import com.cisco.dnaspaces.consumers.CSVWriter;
 import com.cisco.dnaspaces.consumers.JsonEventConsumer;
 import com.cisco.dnaspaces.consumers.S3ToRedshift;
 import com.cisco.dnaspaces.exceptions.FireHoseAPIException;
+import com.cisco.dnaspaces.server.HTTPVerticle;
 import com.cisco.dnaspaces.utils.ConfigUtil;
-import com.cisco.dnaspaces.utils.Counter;
+import io.vertx.core.Vertx;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.net.UnknownHostException;
 import java.util.Properties;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
@@ -27,7 +27,6 @@ public class APIConsumer {
 
     public static void main(String[] args) {
         final Properties config = ConfigUtil.getConfig();
-        final Integer wsPort = Integer.parseInt(config.getProperty("websocket.port"));
         final Integer retryCutoff = Integer.parseInt(config.getProperty("api.retrylimit.cutoff"));
         final long fromTimeStamp = (!config.getProperty("api.initialfromtimestamp").equals("-1")) ? Long.getLong(config.getProperty("api.initialfromtimestamp")) : 0;
         final int fromTimeStampAdvanceWindow = Integer.parseInt(config.getProperty("api.initialfromtimestampadvancewindow"));
@@ -53,7 +52,31 @@ public class APIConsumer {
         // set consumer in API client
         client.setConsumer(consumer);
         client.setFromTimeStampAdvanceWindow(fromTimeStampAdvanceWindow);
-        WSServer wsServer = null;
+
+
+
+        Vertx vertx = Vertx.vertx();
+        vertx.deployVerticle(new HTTPVerticle());
+
+        Integer executionCount = 0;
+        // loop indefinitely to reconnect
+        while (true) {
+            // exponential backoff time to retry
+            waitBeforeRetry(executionCount++ % retryCutoff);
+            log.trace("Connecting to FireHose API. Attempt : " + executionCount);
+            try {
+                client.startConsumeEvents();
+            } catch (FireHoseAPIException e) {
+                log.error("Couldn't connect to API " + e.getMessage());
+                if (canRetry(e)) {
+                    continue;
+                }
+                break;
+            }
+        }
+
+
+        /*WSServer wsServer = null;
         try {
             // create a web socket server and set it to counter utility which will send messages to client
             wsServer = WSServer.getWsServer(wsPort);
@@ -86,7 +109,7 @@ public class APIConsumer {
             } catch (Exception e) {
                 log.error("Couldn't close WSServer properly");
             }
-        }
+        }*/
 
     }
 

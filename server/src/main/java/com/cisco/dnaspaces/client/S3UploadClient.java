@@ -59,7 +59,7 @@ public class S3UploadClient implements Runnable {
                 .standard()
                 .withCredentials(new AWSStaticCredentialsProvider(awsCreds))
                 .build();
-        removeFilesFromS3 = Boolean.valueOf(config.getProperty("s3.accesskey"));
+        removeFilesFromS3 = Boolean.valueOf(config.getProperty("s3.deletefileafteruse"));
     }
 
     @Override
