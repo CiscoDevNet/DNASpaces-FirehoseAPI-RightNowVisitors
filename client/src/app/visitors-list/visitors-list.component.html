@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row">
+    <div class="col-8"><h1>Right Now Visitors <span class="badge badge-pill badge-success"><span *ngIf="visitors.length != filteredvisitors.length">({{filteredvisitors.length}})</span>{{visitors.length}}</span> </h1> 
+    </div>
+    <div class="col-2"><input placeholder="search" [(ngModel)]="searchText"></div>
+    <div class="col-2">
+        <button type="button" class="btn btn-primary btn-sm ml-2" (click)="search()" >Filter</button>
+        <button type="button" class="btn btn-secondary btn-sm ml-2" (click)="reload()" >Reload</button>
+    </div>
+  </div>
+  <div class="row justify-content-around">
+      <div *ngFor="let visitor of filteredvisitors" class="col col-md-2 p-2">
+          <div class="card p-2">
+              <img class="card-img-top" src="/assets/images/user.jpg" alt="User Image">
+              <div class="card-body p-0">
+                  <h6 class="card-title text-center">{{visitor.first_name}} {{visitor.last_name}}</h6>
+                  <h6 class="card-title text-center" *ngIf="!visitor.first_name && !visitor.last_name">Un Known</h6>
+
+                <div class="row list-item">
+                    <div class="col">{{visitor.mac_address}}</div>
+                </div>
+                <div class="row list-item">
+                    <div class="col">{{visitor.location_name}}</div>
+                </div>
+                <div class="row list-item">
+                    <div class="col">SSID</div>
+                    <div class="col">{{visitor.ssid}}</div>
+                </div>
+                <div class="row list-item">
+                    <div class="col"><b>Contact info</b></div>
+                  </div>
+                <div class="row list-item">
+                    <div class="col" *ngIf="visitor.mobile">{{visitor.mobile}}</div>
+                    <div class="col" *ngIf="!visitor.mobile">Phone : N/A</div>
+                </div>
+                <div class="row list-item">
+                    <div class="col" *ngIf="visitor.email">{{visitor.email}}</div>
+                    <div class="col" *ngIf="!visitor.email">E-mail : N/A</div>
+                </div>
+              </div>
+            </div>
+      </div>
+  </div>
+</div>
