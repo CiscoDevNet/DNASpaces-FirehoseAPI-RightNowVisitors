@@ -1,0 +1,85 @@
+DROP TABLE IF EXISTS "dev_net"."device_location_update";
+CREATE TABLE IF NOT EXISTS "dev_net"."device_location_update"
+(
+"partner_tenant_id" VARCHAR(255)
+,"spaces_tenant_id" VARCHAR(256)
+,"record_uid" VARCHAR(256)
+,"spaces_tenant_name" VARCHAR(256)
+,"record_timestamp" BIGINT
+,"x_pos" FLOAT
+,"y_pos" FLOAT
+,"latitude" FLOAT
+,"longitude" FLOAT
+,"ssid" VARCHAR(256)
+,"raw_user_id" VARCHAR(256)
+,"last_seen" BIGINT
+,"visit_id" VARCHAR(256)
+,"device_classification" VARCHAR(256)
+,"location_type" VARCHAR(256)
+,"location_id" VARCHAR(256)
+,"location_name" VARCHAR(256)
+,"device_id" VARCHAR(256)
+,"mac_address" VARCHAR(256)
+,"manufacturer" VARCHAR(256)
+);
+
+DROP TABLE IF EXISTS "dev_net"."device_entry";
+CREATE TABLE IF NOT EXISTS "dev_net"."device_entry"
+(
+"partner_tenant_id" VARCHAR(255)
+,"spaces_tenant_id" VARCHAR(256)
+,"record_uid" VARCHAR(256)
+,"spaces_tenant_name" VARCHAR(256)
+,"record_timestamp" BIGINT
+,"device_id" VARCHAR(256)
+,"mac_address" VARCHAR(256)
+,"location_type" VARCHAR(256)
+,"location_id" VARCHAR(256)
+,"location_name" VARCHAR(256)
+,"visit_id" VARCHAR(256)
+,"entry_timestamp" BIGINT
+,"entry_datetime" VARCHAR(256)
+,"entry_timezone" VARCHAR(256)
+,"days_since_last_visit" INT
+);
+
+DROP TABLE IF EXISTS "dev_net"."device_exit";
+CREATE TABLE IF NOT EXISTS "dev_net"."device_exit"
+(
+"partner_tenant_id" VARCHAR(255)
+,"spaces_tenant_id" VARCHAR(256)
+,"record_uid" VARCHAR(256)
+,"spaces_tenant_name" VARCHAR(256)
+,"record_timestamp" BIGINT
+,"device_id" VARCHAR(256)
+,"user_id" VARCHAR(256)
+,"mac_address" VARCHAR(256)
+,"location_type" VARCHAR(256)
+,"location_id" VARCHAR(256)
+,"location_name" VARCHAR(256)
+,"visit_id" VARCHAR(256)
+,"visit_duration_minutes" VARCHAR(256)
+,"entry_timestamp" BIGINT
+,"entry_datetime" VARCHAR(256)
+,"exit_timestamp" BIGINT
+,"exit_datetime" VARCHAR(256)
+,"timezone" VARCHAR(256)
+);
+
+DROP TABLE IF EXISTS "dev_net"."profile_update";
+CREATE TABLE IF NOT EXISTS "dev_net"."profile_update"
+(
+"partner_tenant_id" VARCHAR(255)
+,"spaces_tenant_id" VARCHAR(256)
+,"record_uid" VARCHAR(256)
+,"spaces_tenant_name" VARCHAR(256)
+,"record_timestamp" BIGINT
+,"device_id" VARCHAR(256)
+,"user_id" VARCHAR(256)
+,"mac_address" VARCHAR(256)
+,"mobile" VARCHAR(25)
+,"email" VARCHAR(256)
+,"gender" VARCHAR(256)
+,"first_name" VARCHAR(256)
+,"last_name" VARCHAR(256)
+);
