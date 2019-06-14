@@ -39,7 +39,7 @@ Steps to Run the client application
 2) In terminal move to /client directory
 3) run ```npm install``` to install angular and its dependencies
 4) In client/src/app/services/location/location.service.ts file, update serverUrl to your server url
-5) Run the client by using ng serve
+5) Run the client by using ```ng serve```
 6) You can access the client by browsing url http://localhost:4200
 
 
