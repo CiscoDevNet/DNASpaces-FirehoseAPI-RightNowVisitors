@@ -50,4 +50,4 @@ With the data available in Redshift we have build a RightNow Visitors dashboard,
 4) Run the client by using ```ng serve```
 5) You can access the client by browsing url http://localhost:4200
 
-
+[![published](https://static.production.devnetcloud.com/codeexchange/assets/images/devnet-published.svg)](https://developer.cisco.com/codeexchange/github/repo/CiscoDevNet/DNASpaces-FirehoseAPI-DetectAndLocate)
