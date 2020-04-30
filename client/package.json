@@ -21,6 +21,7 @@
     "@angular/platform-browser-dynamic": "~7.2.0",
     "@angular/router": "~7.2.0",
     "bootstrap": "^4.3.1",
+    "braces": "^3.0.2",
     "core-js": "^2.5.4",
     "jquery": "^3.4.1",
     "popper": "^1.0.1",
@@ -51,6 +52,7 @@
     "typescript": "~3.2.2"
   },
   "resolutions": {
-    "minimist": "^1.2.5"
+    "minimist": "^1.2.5",
+    "braces": "^3.0.2"
   }
 }
