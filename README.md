@@ -1,8 +1,8 @@
-# Cisco DNA Spaces Firehose API Sample Application - Right Now Visitors
+# Cisco Spaces Firehose API Sample Application - Right Now Visitors
 
-Firehose API provides multiple events such as device entry, exit, current location, associated profile and more. Cisco DNA Spaces partner would be able to integrate the Firehose API to consume these events to realise many use cases, one such use case is to view the current visitors of a location for a customer. 
+Firehose API provides multiple events such as device entry, exit, current location, associated profile and more. Cisco Spaces partner would be able to integrate the Firehose API to consume these events to realise many use cases, one such use case is to view the current visitors of a location for a customer. 
 
-This sample application uses Cisco DNA Spaces Firehose API events such as entry, exit, current location and associated profile, builds data pipeline using AWS S3 and AWS Redshift. 
+This sample application uses Cisco Spaces Firehose API events such as entry, exit, current location and associated profile, builds data pipeline using AWS S3 and AWS Redshift. 
 
 Sample Application consists of 2 components namely
 
@@ -12,7 +12,7 @@ Sample Application consists of 2 components namely
 #### Clone the Repository and follow below instructions to run the application.
 
 ## 1) API Server
-The server application(APIConsumer), invokes the Cisco DNA Spaces Firehose API and consumes the events. The events data is extracted and written into CSV file which is uploaded to AWS S3. Then the events data in the CSV files are read from AWS S3 and inserted into corressponding AWS Redshift tables for each event.
+The server application(APIConsumer), invokes the Cisco Spaces Firehose API and consumes the events. The events data is extracted and written into CSV file which is uploaded to AWS S3. Then the events data in the CSV files are read from AWS S3 and inserted into corressponding AWS Redshift tables for each event.
 
 
 ### Steps to Run the server application
